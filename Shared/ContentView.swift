@@ -16,16 +16,14 @@ struct ContentView: View {
     var body: some View {
             NavigationView {
                 List {
-                    Text(fileContent).onChange(of: fileContent) { newValue in
-                        print("changed")
-                    }
+                    //Text(fileContent)
                     ForEach(model.headers, id: \.self) { header in
                         Section(header: Text(header, style: .date)) {
                                         ForEach(model.groupedByDate[header]!) { item in
                                             Text("\(item.glucose)")
                             }
                         }
-                    }.onDelete(perform: delete).navigationTitle("Snacked")
+                    }.onDelete(perform: delete).navigationTitle("Glucose")
                 }.listStyle(SidebarListStyle())
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {

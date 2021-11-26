@@ -9,9 +9,8 @@
 import Foundation
 
 struct key {
-    static let appGroup = "group.de.plontsch.food-tracker.shared"
+    static let appGroup = "group.de.plontsch.glucose.shared"
     static let itemsFileName = "items.json"
-    static let presetsFileName = "presets.json"
 }
 
 public class Storage {
@@ -43,22 +42,6 @@ public class Storage {
         catch { fatalError("Error Writing File") }
     }
     
-    class func savePresets(presets: [Preset]) {
-        // Encode
-        let jsonEncoder = JSONEncoder()
-        guard let jsonData = try? jsonEncoder.encode(presets) else {
-            fatalError("Error Encode JSON")
-        }
-        let jsonString = String(data: jsonData, encoding: .utf8)
-
-        // Save
-        do {
-            try jsonString?.write(to: Storage.filePath(filename: key.presetsFileName), atomically: false, encoding: .utf8)
-            print("Saved \(presets)")
-        }
-        catch { fatalError("Error Writing File") }
-    }
-        
     class func loadItems()->[Item] {
         if let items = loadItems() {
             return items
@@ -66,13 +49,6 @@ public class Storage {
         return [Item]()
     }
 
-    class func loadPresets()->[Preset] {
-        if let presets = loadPresets() {
-            return presets
-        }
-        return defaultPresets()
-    }
-    
     class func loadItems()->[Item]? {
         // Read
         do {
@@ -89,22 +65,5 @@ public class Storage {
             
         return nil
     }
-    
-    class func loadPresets()->[Preset]? {
-        // Read
-        do {
-            print("Load from \(filePath(filename: key.presetsFileName))")
-            let data = try Data(contentsOf: filePath(filename: key.presetsFileName), options: .mappedIfSafe)
-            let jsonDecoder = JSONDecoder()
-            guard let state = try? jsonDecoder.decode([Preset].self, from: data) else {
-                print("Error decoding")
-                return nil
-            }
-            return state
-        }
-        catch { print("No Presets File Loaded") }
             
-        return nil
-    }
-        
 }

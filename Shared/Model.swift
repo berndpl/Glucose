@@ -73,18 +73,4 @@ class Model: ObservableObject {
             Storage.saveItems(items: items)
         }
     }
-    @Published var presets:[Preset] = Storage.loadPresets() {
-        didSet {
-            Storage.savePresets(presets: presets)
-        }
-    }
-}
-
-func defaultPresets()->[Preset] {
-    let presets:[Preset] = [
-        Preset(title: "🍪", calories: 230.0, colorLiteral: "systemPink"),
-        Preset(title: "🥪", calories: 560.0, colorLiteral: "systemYellow"),
-        Preset(title: "🥤", calories: 140.0, colorLiteral: "systemPurple")
-    ]
-    return presets
 }

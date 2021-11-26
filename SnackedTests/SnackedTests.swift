@@ -35,7 +35,7 @@ class SnackedTests: XCTestCase {
     }
     
     func testInsertModel() throws {
-        let newItem = Item(title: "🍪", calories: 230.0, colorLiteral: "systemPink", createDate: Date())
+        let newItem = Item(glucose: 230.0, createDate: Date())
         model.items.append(newItem)
         XCTAssertEqual(model.items.count, 1)
         model.items.append(newItem)
@@ -44,12 +44,9 @@ class SnackedTests: XCTestCase {
     
     func testHeaders() throws {
         model.items.append(contentsOf:[
-            Item(title: "🍪", calories: 230.0, colorLiteral: "systemPink", createDate: dateWeekAgo),
-            Item(title: "🍪", calories: 230.0, colorLiteral: "systemPink", createDate: dateWeekAgo),
-            Item(title: "🍪", calories: 230.0, colorLiteral: "systemPink", createDate: dateWeekAgo),
-            Item(title: "🍪", calories: 230.0, colorLiteral: "systemPink", createDate: dateYesterday),
-            Item(title: "🍪", calories: 230.0, colorLiteral: "systemPink", createDate: dateYesterday),
-            Item(title: "🍪", calories: 230.0, colorLiteral: "systemPink", createDate: dateToday)
+            Item(glucose: 230.0, createDate: dateWeekAgo),
+            Item(glucose: 230.0, createDate: dateYesterday),
+            Item(glucose: 230.0, createDate: dateToday)
             ])
         
         XCTAssertEqual(model.headers[0], Calendar.current.startOfDay(for: dateWeekAgo))

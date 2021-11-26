@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Reading:CustomStringConvertible {
+public struct Reading:CustomStringConvertible {
     let date:Date
     let value:Int
-    var description : String {
+    public var description : String {
         return "[\(date)] \(value)"
     }
 }
 
-struct ReaderFreeStyleCSV {
+public struct ReaderFreeStyleCSV {
     
     func csv(data: String) -> [[String]] {
         var result: [[String]] = []
