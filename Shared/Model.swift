@@ -71,16 +71,20 @@ class Model: ObservableObject {
         self.items.append(contentsOf: items)
     }
     
-    public func glucoseRating(date:Date)->Int {
+    public func glucoseRating(date:Date)->String {
         
         let calendar = Calendar.current
         let maxDate = calendar.date(byAdding: .minute, value: 60, to: date)
         let filteredItems = items.filter { $0.createDate > date && $0.createDate < maxDate! }
         print("items \(items.count) filtered \(filteredItems.count)")
         
-        let maxGlucose = filteredItems.max { $0.glucose < $1.glucose }?.glucose
-        
-        return Int(maxGlucose!)
+        if filteredItems.count == 0 {
+            return "?"
+        } else {
+            let maxGlucose = filteredItems.max { $0.glucose < $1.glucose }?.glucose
+            return "\(Int(maxGlucose!))"
+        }
+                
     }
     
     public var groupedByDate: [Date: [Item]] {

@@ -67,10 +67,10 @@ struct ContentView: View {
                             showPhotoPicker = true
                         } label: {
                             Image(systemName: "plus.circle.fill")
-                        }.sheet(isPresented: self.$showPhotoPicker) {
-                            PhotoPicker(model: model, showPhotoPicker: $showPhotoPicker)
                         }
                     }
+                }.sheet(isPresented: self.$showPhotoPicker) {
+                    PhotoPicker(model: model, showPhotoPicker: $showPhotoPicker)
                 }
             }
     }

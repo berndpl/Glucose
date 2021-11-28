@@ -16,7 +16,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
   func makeUIViewController(context: Context) -> some UIViewController {
     var configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
     configuration.filter = .images // filter only to images
-    configuration.selectionLimit = 1 // ignore limit
+    configuration.selectionLimit = 0 // ignore limit
     
     let photoPickerViewController = PHPickerViewController(configuration: configuration)
     photoPickerViewController.delegate = context.coordinator
@@ -45,29 +45,19 @@ struct PhotoPicker: UIViewControllerRepresentable {
             return
         }
         
-        print("\(result.assetIdentifier!)")// = result.assetIdentifier
+        print("Picked \(results.count)")
         
-        if let assetId = result.assetIdentifier {
-                       let assetResults = PHAsset.fetchAssets(withLocalIdentifiers: [assetId], options: nil)
-                       DispatchQueue.main.async {
-                           let firstAsset = assetResults.firstObject
-                               print(self.parent.model.foodItems.count)
-                               self.parent.model.insertFood(foodItems: [Food(assetID: firstAsset!.localIdentifier, createDate: firstAsset!.creationDate!)])
-                           //}
+        results.forEach { result in
+            print("\(result.assetIdentifier!)")// = result.assetIdentifier
+            if let assetId = result.assetIdentifier {
+                           let assetResults = PHAsset.fetchAssets(withLocalIdentifiers: [assetId], options: nil)
+                           DispatchQueue.main.async {
+                               let firstAsset = assetResults.firstObject
+                                   print(self.parent.model.foodItems.count)
+                                   self.parent.model.insertFood(foodItems: [Food(assetID: firstAsset!.localIdentifier, createDate: firstAsset!.creationDate!)])
+                           }
                        }
-                   }
-        
-//        if let assetId = results.first?.assetIdentifier,
-//                   let asset = PHAsset.fetchAssets(withLocalIdentifiers: [assetId], options: nil).firstObject
-//                {
-//                    print("asset is \(asset)")
-//                    parent.model.insertFood(food: Food(assetID: asset.localIdentifier, createDate: asset.creationDate!))
-//
-//                    PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil, resultHandler: { (image, info) in
-//                        print("requested image is \(image)")
-//                    })
-//                }
-        
+        }
         
     }
   }
