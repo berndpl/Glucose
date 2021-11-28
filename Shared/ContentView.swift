@@ -11,25 +11,48 @@ struct ContentView: View {
     @ObservedObject var model: Model
     
     @State var fileContent = ""
+    
     @State private var showDocumentPicker = false
+    @State private var showPhotoPicker = false
     
     var body: some View {
             NavigationView {
                 List {
-                    //Text(fileContent)
+                    ForEach(model.foodItems, id: \.self) { item in
+                        VStack {
+                            Image(uiImage:  PhotoLoader().loadImage(assetIdentifier: item.assetID)!)
+                            HStack {
+                                Text("\(model.glucoseRating(date:item.createDate))")
+                                    .fontWeight(.bold)
+                                Text("\(item.timeLabel)")
+                                    .fontWeight(.regular)
+                            }
+                        }
+                    }.onDelete(perform: deleteFoodItem)
                     ForEach(model.headers, id: \.self) { header in
                         Section(header: Text(header, style: .date)) {
                                         ForEach(model.groupedByDate[header]!) { item in
-                                            Text("\(item.glucose)")
+                                            HStack {
+                                                Text("\(item.glucoseLabel)")
+                                                Text("\(item.timeLabel)")
+                                                    .font(.caption)
+                                            }
+                                            
                             }
                         }
                     }.onDelete(perform: delete).navigationTitle("Glucose")
                 }.listStyle(SidebarListStyle())
                 .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+                        Button(action: {
+                            model.didTapDeleteAll()
+                        }) {
+                            Text("Delete All")
+                        }
+                    }
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button(action: {
                             showDocumentPicker = true
-                            print("Button action")
                         }) {
                             Image(systemName: "square.and.arrow.down")
                         }.sheet(isPresented: self.$showDocumentPicker) {
@@ -41,11 +64,12 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .primaryAction) {
                         Button {
-                            print("add reading")
+                            showPhotoPicker = true
                         } label: {
                             Image(systemName: "plus.circle.fill")
+                        }.sheet(isPresented: self.$showPhotoPicker) {
+                            PhotoPicker(model: model, showPhotoPicker: $showPhotoPicker)
                         }
-
                     }
                 }
             }
@@ -53,6 +77,10 @@ struct ContentView: View {
     
     func delete(at offsets: IndexSet) {
         model.items.remove(atOffsets: offsets)
+    }
+
+    func deleteFoodItem(at offsets: IndexSet) {
+        model.foodItems.remove(atOffsets: offsets)
     }
 }
 

@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		7346B3912750E6ED00C7AF0E /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */; };
 		7346B3932750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */; };
+		73A7BD072752E63C0063D63E /* PhotoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7BD062752E63C0063D63E /* PhotoLoader.swift */; };
+		73A7BD092752F4540063D63E /* CorelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7BD082752F4540063D63E /* CorelationTests.swift */; };
 		73C49EA127514EF000E73F82 /* ReaderFreeStyleCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */; };
-		73CEAEFC274FF60B002F2B2B /* SnackedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEAEFB274FF60B002F2B2B /* SnackedTests.swift */; };
+		73C49EA227516B7B00E73F82 /* ReaderFreeStyleCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */; };
+		73C49EA42751822A00E73F82 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C49EA32751822A00E73F82 /* PhotoPicker.swift */; };
+		73CEAEFC274FF60B002F2B2B /* GlucoseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEAEFB274FF60B002F2B2B /* GlucoseTests.swift */; };
 		73CEAF02274FF6C2002F2B2B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E972524A7A9C300C22326 /* Model.swift */; };
 		73CEAF03274FF7DC002F2B2B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E972824A8D68B00C22326 /* Storage.swift */; };
-		898E971724A7A82100C22326 /* SnackedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970424A7A81F00C22326 /* SnackedApp.swift */; };
-		898E971824A7A82100C22326 /* SnackedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970424A7A81F00C22326 /* SnackedApp.swift */; };
+		898E971724A7A82100C22326 /* GlucoseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970424A7A81F00C22326 /* GlucoseApp.swift */; };
+		898E971824A7A82100C22326 /* GlucoseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970424A7A81F00C22326 /* GlucoseApp.swift */; };
 		898E971924A7A82100C22326 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970524A7A81F00C22326 /* ContentView.swift */; };
 		898E971A24A7A82100C22326 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970524A7A81F00C22326 /* ContentView.swift */; };
 		898E971B24A7A82100C22326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 898E970624A7A82100C22326 /* Assets.xcassets */; };
@@ -38,9 +42,12 @@
 /* Begin PBXFileReference section */
 		7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderFreeStyleCSV.swift; sourceTree = "<group>"; };
+		73A7BD062752E63C0063D63E /* PhotoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLoader.swift; sourceTree = "<group>"; };
+		73A7BD082752F4540063D63E /* CorelationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorelationTests.swift; sourceTree = "<group>"; };
+		73C49EA32751822A00E73F82 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		73CEAEF9274FF60B002F2B2B /* GlucoseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlucoseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73CEAEFB274FF60B002F2B2B /* SnackedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackedTests.swift; sourceTree = "<group>"; };
-		898E970424A7A81F00C22326 /* SnackedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackedApp.swift; sourceTree = "<group>"; };
+		73CEAEFB274FF60B002F2B2B /* GlucoseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseTests.swift; sourceTree = "<group>"; };
+		898E970424A7A81F00C22326 /* GlucoseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseApp.swift; sourceTree = "<group>"; };
 		898E970524A7A81F00C22326 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		898E970624A7A82100C22326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		898E970B24A7A82100C22326 /* Glucose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glucose.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +57,7 @@
 		898E971624A7A82100C22326 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		898E972524A7A9C300C22326 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		898E972824A8D68B00C22326 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		898E972B24A8D71F00C22326 /* Snacked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Snacked.entitlements; sourceTree = "<group>"; };
+		898E972B24A8D71F00C22326 /* Glucose.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Glucose.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +85,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		73CEAEFA274FF60B002F2B2B /* SnackedTests */ = {
+		73CEAEFA274FF60B002F2B2B /* GlucoseTests */ = {
 			isa = PBXGroup;
 			children = (
-				73CEAEFB274FF60B002F2B2B /* SnackedTests.swift */,
+				73CEAEFB274FF60B002F2B2B /* GlucoseTests.swift */,
+				73A7BD082752F4540063D63E /* CorelationTests.swift */,
 			);
-			path = SnackedTests;
+			path = GlucoseTests;
 			sourceTree = "<group>";
 		};
 		898E96FE24A7A81F00C22326 = {
@@ -92,7 +100,7 @@
 				898E970324A7A81F00C22326 /* Shared */,
 				898E970D24A7A82100C22326 /* iOS */,
 				898E971424A7A82100C22326 /* macOS */,
-				73CEAEFA274FF60B002F2B2B /* SnackedTests */,
+				73CEAEFA274FF60B002F2B2B /* GlucoseTests */,
 				898E970C24A7A82100C22326 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,12 +108,14 @@
 		898E970324A7A81F00C22326 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				898E970424A7A81F00C22326 /* SnackedApp.swift */,
+				898E970424A7A81F00C22326 /* GlucoseApp.swift */,
 				898E970524A7A81F00C22326 /* ContentView.swift */,
 				7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */,
-				7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */,
+				73C49EA32751822A00E73F82 /* PhotoPicker.swift */,
+				73A7BD062752E63C0063D63E /* PhotoLoader.swift */,
 				898E972524A7A9C300C22326 /* Model.swift */,
 				898E972824A8D68B00C22326 /* Storage.swift */,
+				7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */,
 				898E970624A7A82100C22326 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -124,7 +134,7 @@
 		898E970D24A7A82100C22326 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				898E972B24A8D71F00C22326 /* Snacked.entitlements */,
+				898E972B24A8D71F00C22326 /* Glucose.entitlements */,
 				898E970E24A7A82100C22326 /* Info.plist */,
 			);
 			path = iOS;
@@ -201,7 +211,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					73CEAEF8274FF60B002F2B2B = {
 						CreatedOnToolsVersion = 13.1;
@@ -266,8 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73CEAEFC274FF60B002F2B2B /* SnackedTests.swift in Sources */,
+				73CEAEFC274FF60B002F2B2B /* GlucoseTests.swift in Sources */,
+				73C49EA227516B7B00E73F82 /* ReaderFreeStyleCSV.swift in Sources */,
 				73CEAF02274FF6C2002F2B2B /* Model.swift in Sources */,
+				73A7BD092752F4540063D63E /* CorelationTests.swift in Sources */,
 				73CEAF03274FF7DC002F2B2B /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,11 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73C49EA42751822A00E73F82 /* PhotoPicker.swift in Sources */,
 				898E972624A7A9C300C22326 /* Model.swift in Sources */,
 				898E972924A8D68B00C22326 /* Storage.swift in Sources */,
 				898E971924A7A82100C22326 /* ContentView.swift in Sources */,
 				7346B3912750E6ED00C7AF0E /* DocumentPicker.swift in Sources */,
-				898E971724A7A82100C22326 /* SnackedApp.swift in Sources */,
+				73A7BD072752E63C0063D63E /* PhotoLoader.swift in Sources */,
+				898E971724A7A82100C22326 /* GlucoseApp.swift in Sources */,
 				7346B3932750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +307,7 @@
 				898E972A24A8D68B00C22326 /* Storage.swift in Sources */,
 				898E971A24A7A82100C22326 /* ContentView.swift in Sources */,
 				73C49EA127514EF000E73F82 /* ReaderFreeStyleCSV.swift in Sources */,
-				898E971824A7A82100C22326 /* SnackedApp.swift in Sources */,
+				898E971824A7A82100C22326 /* GlucoseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +338,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.SnackedTests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.GlucoseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -350,7 +364,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.SnackedTests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.GlucoseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -477,7 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iOS/Snacked.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/Glucose.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DNKZNVGEK5;
 				ENABLE_PREVIEWS = YES;
@@ -500,7 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iOS/Snacked.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/Glucose.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DNKZNVGEK5;
 				ENABLE_PREVIEWS = YES;
@@ -525,6 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DNKZNVGEK5;
@@ -536,7 +551,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.Snacked;
+				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.Glucose;
 				PRODUCT_NAME = Glucose;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -549,6 +564,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DNKZNVGEK5;
@@ -560,7 +576,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.Snacked;
+				PRODUCT_BUNDLE_IDENTIFIER = de.plontsch.Glucose;
 				PRODUCT_NAME = Glucose;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;

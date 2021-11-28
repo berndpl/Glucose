@@ -39,9 +39,11 @@ public struct ReaderFreeStyleCSV {
         result.forEach { item in
             if item.count>4 {
                 if currentRow > rowsToSkip {
-                    let date = dateFormatter.date(from: item[2])!
-                    let value = Int(item[4])!
-                    readings.append(Reading(date: date, value: value))
+                    if let date = dateFormatter.date(from: item[2]) {
+                        if let value = Int(item[4]) {
+                            readings.append(Reading(date: date, value: value))
+                        }
+                    }
                 }
             }
             currentRow += 1

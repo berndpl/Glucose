@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct SnackedApp: App {
+struct GlucoseApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(model: Model())
@@ -16,7 +16,7 @@ struct SnackedApp: App {
     }
 }
 
-struct SnackedApp_Previews: PreviewProvider {
+struct GlucoseApp_Previews: PreviewProvider {
     static var previews: some View {
         /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }

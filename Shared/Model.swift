@@ -8,26 +8,15 @@
 import Combine
 import Foundation
 
-public struct Preset:Codable {
-    public var title:String
-    public let colorLiteral:String
-    public var calories:Double
+struct Food:Identifiable, Codable, Hashable {
+    public var assetID:String
+    public var createDate:Date
     var id:UUID = UUID()
-    
-    init(title: String, calories: Double, colorLiteral:String) {
-        self.title = title
-        self.calories = calories
-        self.colorLiteral = colorLiteral
-    }
-}
-
-extension Preset {
-    public var caloriesLabel:String {
-        let measurement = Measurement(value: calories, unit: UnitEnergy.calories)
-        let formatter = MeasurementFormatter()
-        formatter.unitOptions = .providedUnit
-        formatter.numberFormatter.maximumFractionDigits = 0
-        return formatter.string(from: measurement)
+    var timeLabel:String {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateStyle = .short
+        timeFormatter.timeStyle = .short
+        return timeFormatter.string(from: createDate)
     }
 }
 
@@ -37,6 +26,18 @@ struct Item:Identifiable, Codable, Hashable, Comparable {
     var id:UUID = UUID()
     static func < (lhs: Item, rhs: Item) -> Bool {
         return lhs.createDate < rhs.createDate
+    }
+
+    var glucoseLabel:String {
+        let glucoseMeasurement = Measurement(value: glucose, unit: UnitConcentrationMass.milligramsPerDeciliter)
+        return glucoseMeasurement.description
+    }
+
+    var timeLabel:String {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateStyle = .none
+        timeFormatter.timeStyle = .short
+        return timeFormatter.string(from: createDate)
     }
 }
 
@@ -53,11 +54,33 @@ class Model: ObservableObject {
             Item(glucose: Double(reading.value), createDate: reading.date)
         })
         insertItems(items: items)
-        //insertItems
+    }
+    
+    public func didTapDeleteAll() {
+        items = [Item]()
+        foodItems = [Food]()
+    }
+    
+    func insertFood(foodItems:[Food]) {
+        self.foodItems.insert(contentsOf: foodItems, at: 0)
+        //self.foodItems.append(contentsOf: foodItems)
     }
     
     func insertItems(items:[Item]) {
+        //self.items.insert(contentsOf: items, at: 0)
         self.items.append(contentsOf: items)
+    }
+    
+    public func glucoseRating(date:Date)->Int {
+        
+        let calendar = Calendar.current
+        let maxDate = calendar.date(byAdding: .minute, value: 60, to: date)
+        let filteredItems = items.filter { $0.createDate > date && $0.createDate < maxDate! }
+        print("items \(items.count) filtered \(filteredItems.count)")
+        
+        let maxGlucose = filteredItems.max { $0.glucose < $1.glucose }?.glucose
+        
+        return Int(maxGlucose!)
     }
     
     public var groupedByDate: [Date: [Item]] {
@@ -65,12 +88,18 @@ class Model: ObservableObject {
     }
     
     public var headers: [Date] {
-        groupedByDate.map({ $0.key }).sorted()
+        groupedByDate.map({ $0.key }).sorted().reversed()
     }
     
     @Published var items:[Item] = Storage.loadItems() {
         didSet {
             Storage.saveItems(items: items)
+        }
+    }
+    
+    @Published var foodItems:[Food] = Storage.loadFoodItems() {
+        didSet {
+            Storage.saveFoodItems(foodItems: foodItems)
         }
     }
 }

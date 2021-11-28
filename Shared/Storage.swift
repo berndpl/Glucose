@@ -11,6 +11,7 @@ import Foundation
 struct key {
     static let appGroup = "group.de.plontsch.glucose.shared"
     static let itemsFileName = "items.json"
+    static let foodItemsFileName = "foodItems.json"
 }
 
 public class Storage {
@@ -65,5 +66,51 @@ public class Storage {
             
         return nil
     }
+ 
+    // FOOD
+    
+    class func resetFoodItems() {
+        saveFoodItems(foodItems: [])
+    }
+    
+    class func saveFoodItems(foodItems: [Food]) {
+        // Encode
+        let jsonEncoder = JSONEncoder()
+        guard let jsonData = try? jsonEncoder.encode(foodItems) else {
+            fatalError("Error Encode JSON")
+        }
+        let jsonString = String(data: jsonData, encoding: .utf8)
+
+        // Save
+        do {
+            try jsonString?.write(to: Storage.filePath(filename: key.foodItemsFileName), atomically: false, encoding: .utf8)
+            print("Saved \(foodItems)")
+        }
+        catch { fatalError("Error Writing File") }
+    }
+    
+    class func loadFoodItems()->[Food] {
+        if let items = loadFoodItems() {
+            return items
+        }
+        return [Food]()
+    }
+
+    class func loadFoodItems()->[Food]? {
+        // Read
+        do {
+            print("Load from \(filePath(filename: key.foodItemsFileName))")
+            let data = try Data(contentsOf: filePath(filename: key.foodItemsFileName), options: .mappedIfSafe)
+            let jsonDecoder = JSONDecoder()
+            guard let state = try? jsonDecoder.decode([Food].self, from: data) else {
+                print("Error decoding")
+                return nil
+            }
+            return state
+        }
+        catch { print("No Items File Loaded") }
             
+        return nil
+    }
+    
 }

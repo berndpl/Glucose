@@ -7,7 +7,7 @@
 
 import XCTest
 
-class SnackedTests: XCTestCase {
+class GlucoseTests: XCTestCase {
     
     // Day = 86400
 
