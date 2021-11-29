@@ -14,7 +14,7 @@ struct Food:Identifiable, Codable, Hashable {
     var id:UUID = UUID()
     var timeLabel:String {
         let timeFormatter = DateFormatter()
-        timeFormatter.dateStyle = .short
+        timeFormatter.dateStyle = .none
         timeFormatter.timeStyle = .short
         return timeFormatter.string(from: createDate)
     }

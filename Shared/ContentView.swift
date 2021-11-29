@@ -15,65 +15,67 @@ struct ContentView: View {
     @State private var showDocumentPicker = false
     @State private var showPhotoPicker = false
     
+    @State private var selectedSegement = 0
+    
+    var columns: [GridItem] = [
+        GridItem(.adaptive(minimum: 120.0))
+        ]
+        
     var body: some View {
-            NavigationView {
-                List {
-                    ForEach(model.foodItems, id: \.self) { item in
-                        VStack {
-                            Image(uiImage:  PhotoLoader().loadImage(assetIdentifier: item.assetID)!)
-                            HStack {
-                                Text("\(model.glucoseRating(date:item.createDate))")
-                                    .fontWeight(.bold)
-                                Text("\(item.timeLabel)")
-                                    .fontWeight(.regular)
-                            }
+        NavigationView {
+        ScrollView {
+//            Picker("What is your favorite color?", selection: $selectedSegement) {
+//                            Text("Best").tag(0)
+//                            Text("Worst").tag(1)
+//                        }
+//                        .pickerStyle(.segmented)
+                    LazyVGrid(
+                        columns: columns,
+                        alignment: .center,
+                        spacing: 8,
+                        pinnedViews: [.sectionHeaders, .sectionFooters]
+                    )
+                        {
+                                ForEach(model.foodItems, id: \.self) { item in
+                                    CellView(assetID: item.assetID, glucoseReading: model.glucoseRating(date: item.createDate), timeLabel: item.timeLabel)
+                                }
                         }
-                    }.onDelete(perform: deleteFoodItem)
-                    ForEach(model.headers, id: \.self) { header in
-                        Section(header: Text(header, style: .date)) {
-                                        ForEach(model.groupedByDate[header]!) { item in
-                                            HStack {
-                                                Text("\(item.glucoseLabel)")
-                                                Text("\(item.timeLabel)")
-                                                    .font(.caption)
-                                            }
-                                            
-                            }
-                        }
-                    }.onDelete(perform: delete).navigationTitle("Glucose")
-                }.listStyle(SidebarListStyle())
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarLeading) {
-                        Button(action: {
-                            model.didTapDeleteAll()
-                        }) {
-                            Text("Delete All")
-                        }
-                    }
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            showDocumentPicker = true
-                        }) {
-                            Image(systemName: "square.and.arrow.down")
-                        }.sheet(isPresented: self.$showDocumentPicker) {
-                            DocumentPicker(model: model, fileContent:$fileContent)
-                        }
-                        
-                    }
-                }
-                .toolbar {
-                    ToolbarItemGroup(placement: .primaryAction) {
-                        Button {
-                            showPhotoPicker = true
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                        }
-                    }
-                }.sheet(isPresented: self.$showPhotoPicker) {
-                    PhotoPicker(model: model, showPhotoPicker: $showPhotoPicker)
+                        .padding(.top)
+        }.navigationTitle("Glucose")
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Button(action: {
+                    model.didTapDeleteAll()
+                }) {
+                    Text("Delete All")
                 }
             }
-    }
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    showDocumentPicker = true
+                }) {
+                    Image(systemName: "square.and.arrow.down")
+                }.sheet(isPresented: self.$showDocumentPicker) {
+                    DocumentPicker(model: model, fileContent:$fileContent)
+                }
+
+            }
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .primaryAction) {
+                Button {
+                    showPhotoPicker = true
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                }
+            }
+        }.sheet(isPresented: self.$showPhotoPicker) {
+            PhotoPicker(model: model, showPhotoPicker: $showPhotoPicker)
+        }
+        
+        }
+        
+}
     
     func delete(at offsets: IndexSet) {
         model.items.remove(atOffsets: offsets)
@@ -98,3 +100,5 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
 }
+
+

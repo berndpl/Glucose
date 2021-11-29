@@ -43,7 +43,7 @@ class CorelationTests: XCTestCase {
             Item(glucose: 130.0, createDate: dateToday)
         ])
 
-        XCTAssertEqual(model.glucoseRating(date: pickedFoodItem.createDate), 240.0)
+        XCTAssertEqual(model.glucoseRating(date: pickedFoodItem.createDate), "240.0")
     }
     
 

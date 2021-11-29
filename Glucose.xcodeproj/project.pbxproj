@@ -17,6 +17,7 @@
 		73CEAEFC274FF60B002F2B2B /* GlucoseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEAEFB274FF60B002F2B2B /* GlucoseTests.swift */; };
 		73CEAF02274FF6C2002F2B2B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E972524A7A9C300C22326 /* Model.swift */; };
 		73CEAF03274FF7DC002F2B2B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E972824A8D68B00C22326 /* Storage.swift */; };
+		73D84BEE27544048009198AF /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D84BED27544048009198AF /* CellView.swift */; };
 		898E971724A7A82100C22326 /* GlucoseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970424A7A81F00C22326 /* GlucoseApp.swift */; };
 		898E971824A7A82100C22326 /* GlucoseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970424A7A81F00C22326 /* GlucoseApp.swift */; };
 		898E971924A7A82100C22326 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E970524A7A81F00C22326 /* ContentView.swift */; };
@@ -47,6 +48,7 @@
 		73C49EA32751822A00E73F82 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		73CEAEF9274FF60B002F2B2B /* GlucoseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlucoseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CEAEFB274FF60B002F2B2B /* GlucoseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseTests.swift; sourceTree = "<group>"; };
+		73D84BED27544048009198AF /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		898E970424A7A81F00C22326 /* GlucoseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseApp.swift; sourceTree = "<group>"; };
 		898E970524A7A81F00C22326 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		898E970624A7A82100C22326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,9 +112,10 @@
 			children = (
 				898E970424A7A81F00C22326 /* GlucoseApp.swift */,
 				898E970524A7A81F00C22326 /* ContentView.swift */,
-				7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */,
+				73D84BED27544048009198AF /* CellView.swift */,
 				73C49EA32751822A00E73F82 /* PhotoPicker.swift */,
 				73A7BD062752E63C0063D63E /* PhotoLoader.swift */,
+				7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */,
 				898E972524A7A9C300C22326 /* Model.swift */,
 				898E972824A8D68B00C22326 /* Storage.swift */,
 				7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */,
@@ -296,6 +299,7 @@
 				73A7BD072752E63C0063D63E /* PhotoLoader.swift in Sources */,
 				898E971724A7A82100C22326 /* GlucoseApp.swift in Sources */,
 				7346B3932750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift in Sources */,
+				73D84BEE27544048009198AF /* CellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +500,7 @@
 				DEVELOPMENT_TEAM = DNKZNVGEK5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +523,7 @@
 				DEVELOPMENT_TEAM = DNKZNVGEK5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
