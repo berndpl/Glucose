@@ -27,7 +27,7 @@ struct Item:Identifiable, Codable, Hashable, Comparable {
     static func < (lhs: Item, rhs: Item) -> Bool {
         return lhs.createDate < rhs.createDate
     }
-
+    
     var glucoseLabel:String {
         let glucoseMeasurement = Measurement(value: glucose, unit: UnitConcentrationMass.milligramsPerDeciliter)
         return glucoseMeasurement.description
@@ -71,7 +71,21 @@ class Model: ObservableObject {
         self.items.append(contentsOf: items)
     }
     
-    public func glucoseRating(date:Date)->String {
+    func lastItem()->String {
+        
+        let dates = items.map { $0.createDate }
+        if dates.count > 0 {
+            let mostRecentDate = dates.max(by: {
+                $0.timeIntervalSinceReferenceDate < $1.timeIntervalSinceReferenceDate
+            })
+            
+            return mostRecentDate!.short
+        } else {
+            return "Import CSV to get started"
+        }
+    }
+    
+    public func glucoseRating(date:Date)->(label:String, isBad:Bool) {
         
         let calendar = Calendar.current
         let maxDate = calendar.date(byAdding: .minute, value: 60, to: date)
@@ -79,10 +93,11 @@ class Model: ObservableObject {
         print("items \(items.count) filtered \(filteredItems.count)")
         
         if filteredItems.count == 0 {
-            return "?"
+            return ("?", false)
         } else {
             let maxGlucose = filteredItems.max { $0.glucose < $1.glucose }?.glucose
-            return "\(Int(maxGlucose!))"
+            let isBad = maxGlucose! > 150.0
+            return ("\(Int(maxGlucose!))", isBad)
         }
                 
     }

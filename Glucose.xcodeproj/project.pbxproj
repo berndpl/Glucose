@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7346B3912750E6ED00C7AF0E /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */; };
 		7346B3932750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */; };
+		7396B34D2754E9DC006BA993 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396B34C2754E9DC006BA993 /* Date+Extension.swift */; };
 		73A7BD072752E63C0063D63E /* PhotoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7BD062752E63C0063D63E /* PhotoLoader.swift */; };
 		73A7BD092752F4540063D63E /* CorelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A7BD082752F4540063D63E /* CorelationTests.swift */; };
 		73C49EA127514EF000E73F82 /* ReaderFreeStyleCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderFreeStyleCSV.swift; sourceTree = "<group>"; };
+		7396B34C2754E9DC006BA993 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		73A7BD062752E63C0063D63E /* PhotoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLoader.swift; sourceTree = "<group>"; };
 		73A7BD082752F4540063D63E /* CorelationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorelationTests.swift; sourceTree = "<group>"; };
 		73C49EA32751822A00E73F82 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				73A7BD062752E63C0063D63E /* PhotoLoader.swift */,
 				7346B3902750E6ED00C7AF0E /* DocumentPicker.swift */,
 				898E972524A7A9C300C22326 /* Model.swift */,
+				7396B34C2754E9DC006BA993 /* Date+Extension.swift */,
 				898E972824A8D68B00C22326 /* Storage.swift */,
 				7346B3922750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift */,
 				898E970624A7A82100C22326 /* Assets.xcassets */,
@@ -296,6 +299,7 @@
 				898E972924A8D68B00C22326 /* Storage.swift in Sources */,
 				898E971924A7A82100C22326 /* ContentView.swift in Sources */,
 				7346B3912750E6ED00C7AF0E /* DocumentPicker.swift in Sources */,
+				7396B34D2754E9DC006BA993 /* Date+Extension.swift in Sources */,
 				73A7BD072752E63C0063D63E /* PhotoLoader.swift in Sources */,
 				898E971724A7A82100C22326 /* GlucoseApp.swift in Sources */,
 				7346B3932750FCBA00C7AF0E /* ReaderFreeStyleCSV.swift in Sources */,

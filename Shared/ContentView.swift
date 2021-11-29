@@ -15,32 +15,42 @@ struct ContentView: View {
     @State private var showDocumentPicker = false
     @State private var showPhotoPicker = false
     
-    @State private var selectedSegement = 0
-    
     var columns: [GridItem] = [
-        GridItem(.adaptive(minimum: 120.0))
+        GridItem(.adaptive(minimum: 100.0))
         ]
         
     var body: some View {
         NavigationView {
         ScrollView {
-//            Picker("What is your favorite color?", selection: $selectedSegement) {
-//                            Text("Best").tag(0)
-//                            Text("Worst").tag(1)
-//                        }
-//                        .pickerStyle(.segmented)
                     LazyVGrid(
                         columns: columns,
                         alignment: .center,
-                        spacing: 8,
+                        spacing: 16,
                         pinnedViews: [.sectionHeaders, .sectionFooters]
                     )
                         {
                                 ForEach(model.foodItems, id: \.self) { item in
-                                    CellView(assetID: item.assetID, glucoseReading: model.glucoseRating(date: item.createDate), timeLabel: item.timeLabel)
+                                    let foodInfo = model.glucoseRating(date: item.createDate)
+                                    CellView(assetID: item.assetID, glucoseReading: foodInfo.label, isBad: foodInfo.isBad, timeLabel: item.timeLabel)
+                                        .contextMenu {
+                                            Button(
+                                                role: .destructive,
+                                                action: {
+                                                    print("delete")
+                                                    }
+                                            ) {
+                                                Text("Delete food")
+                                                Image(systemName: "trash")
+                                            }
+                                        }
                                 }
                         }
-                        .padding(.top)
+                        .padding(.all)
+            Text("\(model.items.count) Measurements \n \(model.lastItem())")
+                .font(.footnote)
+                .multilineTextAlignment(.center)
+                .lineLimit(nil)
+                .tint(.secondary)
         }.navigationTitle("Glucose")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarLeading) {

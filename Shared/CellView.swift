@@ -11,6 +11,7 @@ struct CellView: View {
     
     let assetID:String
     let glucoseReading:String
+    let isBad:Bool
     let timeLabel:String
     
     var body: some View {
@@ -24,21 +25,24 @@ struct CellView: View {
             }
             .clipped()
             .aspectRatio(1, contentMode: .fit)
+            .opacity(glucoseReading == "?" ? 0.2 : 1.0)
             
+            if glucoseReading != "?" {
             VStack {
-                Text("\(glucoseReading)")
-                    .font(.footnote)
-                    .fontWeight(.black)
-//                Text("\(timeLabel)")
-//                    .font(.footnote)
-//                    .fontWeight(.regular)
+                    Text("\(glucoseReading)")
+                        .font(.footnote)
+                        .fontWeight(.black)
+                        .foregroundColor(isBad ? Color.red : Color.primary)
             }
             .padding(8)
-            .background(.ultraThickMaterial)
+//                if isBad {
+//                    .background(Color.pink)
+//                } else {
+//                }
+            .background(.thickMaterial )
             .cornerRadius(16.0)
-            .offset(y: -8)
-
-            //Text("\(timeLabel)").fontWeight(.regular)
+            .offset(y: -10)
+            }
         }
     }
 }
@@ -47,7 +51,7 @@ struct CellView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            CellView(assetID: "abc", glucoseReading: "120", timeLabel: "13:34")
+            CellView(assetID: "abc", glucoseReading: "120", isBad: false, timeLabel: "13:34")
             .previewDevice("iPhone 11")
             .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
         }
